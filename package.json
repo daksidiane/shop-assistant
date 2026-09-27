@@ -1,0 +1,23 @@
+{
+  "name": "teplo-dom-assistant",
+  "version": "1.0.0",
+  "description": "ИИ-чат-бот климатического магазина: виджет сайта + VK Bots Long Poll + ProxyAPI",
+  "type": "module",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "helmet": "^8.0.0",
+    "openai": "^4.86.2",
+    "uuid": "^11.1.0"
+  }
+}

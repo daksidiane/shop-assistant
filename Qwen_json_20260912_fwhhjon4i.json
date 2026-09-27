@@ -1,0 +1,90 @@
+{
+  "dialogs": [
+    {
+      "dialog_id": "dlg_001",
+      "user_id": "usr_001",
+      "started_at": "2026-09-13T10:30:00Z",
+      "ended_at": null,
+      "status": "active",
+      "channel": "website_chat",
+      "messages": [
+        {
+          "message_id": "msg_001",
+          "timestamp": "2026-09-13T10:30:05Z",
+          "sender": "user",
+          "content": "Здравствуйте! Помогите выбрать кондиционер",
+          "metadata": {
+            "detected_intent": "product_selection",
+            "confidence": 0.92
+          }
+        },
+        {
+          "message_id": "msg_002",
+          "timestamp": "2026-09-13T10:30:08Z",
+          "sender": "bot",
+          "content": "Конечно, помогу подобрать оптимальную модель! 🎯 Для начала подскажите: какая площадь помещения?",
+          "metadata": {
+            "scenario": "product_selection",
+            "response_template": "greeting_selection"
+          }
+        },
+        {
+          "message_id": "msg_003",
+          "timestamp": "2026-09-13T10:31:20Z",
+          "sender": "user",
+          "content": "Комната 25 квадратных метров",
+          "metadata": {
+            "extracted_data": {
+              "room_area": 25
+            }
+          }
+        },
+        {
+          "message_id": "msg_004",
+          "timestamp": "2026-09-13T10:31:25Z",
+          "sender": "bot",
+          "content": "Отлично! Для комнаты 25 кв.м. нужен кондиционер мощностью около 2.5 кВт (модель на 9000 BTU). Уточните: какая высота потолков и на какую сторону выходят окна?",
+          "metadata": {
+            "scenario": "product_selection",
+            "step": 2
+          }
+        }
+      ],
+      "metadata": {
+        "total_messages": 4,
+        "bot_messages": 2,
+        "user_messages": 2,
+        "scenarios_used": ["greeting", "product_selection"],
+        "products_mentioned": [],
+        "handoff_triggered": false,
+        "satisfaction_rating": null
+      }
+    }
+  ],
+  "dialog_schema": {
+    "dialog_id": "string, unique",
+    "user_id": "string, reference to user",
+    "started_at": "datetime",
+    "ended_at": "datetime or null",
+    "status": "enum: active, closed, transferred",
+    "channel": "enum: website_chat, vk, telegram",
+    "messages": [
+      {
+        "message_id": "string",
+        "timestamp": "datetime",
+        "sender": "enum: user, bot, manager",
+        "content": "string",
+        "metadata": "object, optional"
+      }
+    ],
+    "metadata": {
+      "total_messages": "integer",
+      "bot_messages": "integer",
+      "user_messages": "integer",
+      "scenarios_used": "array of scenario IDs",
+      "products_mentioned": "array of product IDs",
+      "handoff_triggered": "boolean",
+      "satisfaction_rating": "integer 1-5 or null"
+    }
+  }
+}

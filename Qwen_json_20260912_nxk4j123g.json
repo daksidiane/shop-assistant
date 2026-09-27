@@ -1,0 +1,60 @@
+{
+  "notification_templates": {
+    "new_dialog": {
+      "event_type": "new_dialog",
+      "template": " Новый диалог\n\nID: {dialog_id}\nВремя: {timestamp}\nИсточник: {channel}\nПервое сообщение: {first_message}\n\n[Открыть диалог]({admin_panel_link})",
+      "send_to": "managers_group",
+      "priority": "normal"
+    },
+    "handoff_request": {
+      "event_type": "handoff_request",
+      "template": "️ Требуется подключение менеджера\n\nДиалог: {dialog_id}\nПричина: {reason}\nКлиент: {user_name}\nКонтакты: {user_phone}\n\nИстория диалога:\n{dialog_summary}\n\n[Принять диалог]({accept_link})",
+      "send_to": "available_managers",
+      "priority": "high"
+    },
+    "dialog_closed": {
+      "event_type": "dialog_closed",
+      "template": "✅ Диалог завершен\n\nID: {dialog_id}\nДлительность: {duration}\nСообщений: {total_messages}\nРезультат: {outcome}\n\n[Посмотреть статистику]({stats_link})",
+      "send_to": "managers_group",
+      "priority": "low"
+    },
+    "error_alert": {
+      "event_type": "error",
+      "template": "❌ Ошибка в работе бота\n\nВремя: {timestamp}\nОшибка: {error_message}\nDialog ID: {dialog_id}\nStack trace:\n{stack_trace}\n\n[Посмотреть логи]({logs_link})",
+      "send_to": "tech_support",
+      "priority": "critical"
+    },
+    "daily_summary": {
+      "event_type": "daily_summary",
+      "template": "📊 Ежедневная сводка ({date})\n\nВсего диалогов: {total_dialogs}\nОбработано ботом: {bot_handled}\nПередано менеджерам: {handoffs}\nСреднее время ответа: {avg_response_time}\nУдовлетворенность: {satisfaction_rate}%\n\nТоп вопросов:\n{top_questions}\n\n[Подробная статистика]({dashboard_link})",
+      "send_to": "managers_group",
+      "priority": "normal",
+      "schedule": "daily_21:00"
+    }
+  },
+  "vk_config": {
+    "api_version": "5.131",
+    "use_long_poll": true,
+    "group_id": "123456789",
+    "access_token": "vk_access_token_here",
+    "long_poll_server": "https://vk.com/im?sel=-123456789",
+    "message_settings": {
+      "parse_mode": "markdown",
+      "disable_notification": false,
+      "reply_to": null
+    }
+  },
+  "example_notifications": [
+    {
+      "event_type": "handoff_request",
+      "dialog_id": "dlg_005",
+      "timestamp": "2026-09-13T14:25:00Z",
+      "reason": "Техническая проблема - кондиционер течет",
+      "user_name": "Анна Пример",
+      "user_phone": "+7 (999) 555-44-33",
+      "dialog_summary": "Клиентка сообщила, что из внутреннего блока капает вода. Кондиционер модель TD-07, установлен 3 месяца назад. Гарантия действует. Требуется выезд мастера.",
+      "priority": "high",
+      "formatted_message": "️ Требуется подключение менеджера\n\nДиалог: dlg_005\nПричина: Техническая проблема - кондиционер течет\nКлиент: Анна Пример\nКонтакты: +7 (999) 555-44-33\n\nИстория диалога:\nКлиентка сообщила, что из внутреннего блока капает вода. Кондиционер модель TD-07, установлен 3 месяца назад. Гарантия действует. Требуется выезд мастера.\n\n[Принять диалог](https://admin.teplo-dom.example/dialogs/dlg_005/accept)"
+    }
+  ]
+}
