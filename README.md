@@ -40,3 +40,5 @@
 - Telegram: [https://t.me/Dariodora](https://t.me/Dariodora)
 - Почта: [daksidiane@gmail.com](mailto:daksidiane@gmail.com)
 - LinkedIn: [https://www.linkedin.com/in/daria-danilko-8b7a081b5](https://www.linkedin.com/in/daria-danilko-8b7a081b5)
+
+![Чат-бот для сайта и соцсетей](https://raw.githubusercontent.com/daksidiane/daksidiane/main/assets/shop-assistant.gif)
