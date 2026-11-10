@@ -65,14 +65,14 @@
     <section id="contacts" class="section">
       <h2>Как проверить решение</h2>
       <ol class="steps">
-        <li>Скопируйте <code>.env.example</code> → <code>.env</code> и вставьте ключи ProxyAPI и VK.</li>
+        <li>Скопируйте <code>.env.example</code> → <code>.env</code> и вставьте ключи из кабинета и сообщества VK.</li>
         <li>Запустите <code>npm start</code> и откройте эту страницу.</li>
         <li>Напишите в виджет: «Помогите выбрать кондиционер на 25 м²».</li>
-        <li>Параллельно напишите в ЛС сообщества ВК — Long Poll обработает сообщение тем же ИИ.</li>
+        <li>Параллельно напишите в ЛС сообщества ВК — то же сообщение обработает бот.</li>
       </ol>
       <p class="hint">
-        Для Netlify загрузите папку <code>public/</code> как статический сайт и укажите URL бэкенда в
-        <code>widget.js</code> (<code>data-api</code>). Бэкенд с Long Poll нужен на Node-хостинге.
+        Страницу из папки <code>public/</code> можно открыть отдельно. Адрес сервера указывается в
+        <code>widget.js</code> (<code>data-api</code>).
       </p>
     </section>
   </main>

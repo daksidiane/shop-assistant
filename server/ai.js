@@ -79,7 +79,7 @@ function stripRedundantGreeting(text, { history, channel }) {
 }
 
 /**
- * Генерация ответа через ProxyAPI (OpenAI-compatible).
+ * Генерация ответа через совместимый API.
  */
 export async function generateReply({ userMessage, history = [], channel = 'website' }) {
   const ragContext = retrieveContext(userMessage);

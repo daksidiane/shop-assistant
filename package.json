@@ -1,7 +1,7 @@
 {
   "name": "teplo-dom-assistant",
   "version": "1.0.0",
-  "description": "ИИ-чат-бот климатического магазина: виджет сайта + VK Bots Long Poll + ProxyAPI",
+  "description": "Чат-бот климатического магазина: виджет сайта и сообщения сообщества ВКонтакте",
   "type": "module",
   "main": "server/index.js",
   "scripts": {

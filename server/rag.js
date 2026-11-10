@@ -3,9 +3,10 @@ import path from 'path';
 import config from './config.js';
 
 function loadJsonFiles() {
+  const knowledgeDir = path.join(config.rootDir, 'knowledge');
   const files = fs
-    .readdirSync(config.rootDir)
-    .filter((name) => name.startsWith('Qwen_json_') && name.endsWith('.json'));
+    .readdirSync(knowledgeDir)
+    .filter((name) => name.endsWith('.json'));
 
   const bag = {
     products: [],
@@ -17,7 +18,7 @@ function loadJsonFiles() {
   };
 
   for (const file of files) {
-    const raw = JSON.parse(fs.readFileSync(path.join(config.rootDir, file), 'utf8'));
+    const raw = JSON.parse(fs.readFileSync(path.join(knowledgeDir, file), 'utf8'));
     if (Array.isArray(raw.products)) bag.products = raw.products;
     if (Array.isArray(raw.faq)) bag.faq = raw.faq;
     if (Array.isArray(raw.knowledge_base)) bag.knowledge_base = raw.knowledge_base;
@@ -133,7 +134,7 @@ export function retrieveContext(userMessage, { limit = 8 } = {}) {
 export function loadSystemPrompt() {
   const mdPath = path.join(config.rootDir, 'system_prompt.md');
   const md = fs.readFileSync(mdPath, 'utf8');
-  const match = md.match(/```\n([\s\S]*?)\n```/);
+  const match = md.match(/```\r?\n([\s\S]*?)\r?\n```/);
   if (!match) {
     throw new Error('Не удалось извлечь SYSTEM PROMPT из system_prompt.md');
   }
